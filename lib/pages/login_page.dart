@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myappbootcamp/pages/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -8,8 +9,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  var emailControler = TextEditingController(text: "");
-  var senhaControler = TextEditingController(text: "");
+  var emailControler = TextEditingController(text: "email@email.com");
+  var senhaControler = TextEditingController(text: "12345678");
   bool isObscurePwd = true;
 
   @override
@@ -140,10 +141,10 @@ class _LoginPageState extends State<LoginPage> {
                             if (emailControler.text.trim() ==
                                     "email@email.com" &&
                                 senhaControler.text.trim() == "12345678") {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text(
-                                          "Login efetuado com sucesso!!")));
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const HomePage()));
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
