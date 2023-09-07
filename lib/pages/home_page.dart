@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myappbootcamp/pages/pagina1.dart';
+import 'package:myappbootcamp/pages/card_page.dart';
 import 'package:myappbootcamp/pages/pagina2.dart';
 import 'package:myappbootcamp/pages/pagina3.dart';
 import 'package:myappbootcamp/share/widgets/custon_draw.dart';
@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(title: const Text("Home Page")),
-        drawer: CustonDraw(),
+        drawer: const CustonDraw(),
         body: Column(
           children: [
             Expanded(
@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
                   });
                 },
                 children: const [
-                  Pagina1Page(),
+                  CardPage(),
                   Pagina2Page(),
                   Pagina3Page(),
                 ],
