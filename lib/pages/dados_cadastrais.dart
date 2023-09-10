@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myappbootcamp/repositories/linguagens_repository.dart';
 import 'package:myappbootcamp/repositories/nivel_repository.dart';
-import 'package:myappbootcamp/share/widgets/text_label.dart';
+import 'package:myappbootcamp/shared/widgets/text_label.dart';
 
 class DadosCadastraisPage extends StatefulWidget {
   const DadosCadastraisPage({super.key});

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:myappbootcamp/pages/card_page.dart';
-import 'package:myappbootcamp/pages/pagina2.dart';
-import 'package:myappbootcamp/pages/pagina3.dart';
-import 'package:myappbootcamp/share/widgets/custon_draw.dart';
+import 'package:myappbootcamp/pages/images_page.dart';
+import 'package:myappbootcamp/pages/list_view.dart';
+import 'package:myappbootcamp/pages/list_view_horizontal.dart';
+import 'package:myappbootcamp/shared/widgets/custon_draw.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,12 +33,14 @@ class _HomePageState extends State<HomePage> {
                 },
                 children: const [
                   CardPage(),
-                  Pagina2Page(),
-                  Pagina3Page(),
+                  ImagesPage(),
+                  ListViewPage(),
+                  ListViewHorizontal(),
                 ],
               ),
             ),
             BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
                 onTap: (value) {
                   pageController.jumpToPage(value);
                 },
@@ -47,7 +50,8 @@ class _HomePageState extends State<HomePage> {
                       label: "Pag1", icon: Icon(Icons.home)),
                   BottomNavigationBarItem(label: "Pag2", icon: Icon(Icons.add)),
                   BottomNavigationBarItem(
-                      label: "Pag3", icon: Icon(Icons.person))
+                      label: "Pag3", icon: Icon(Icons.person)),
+                  BottomNavigationBarItem(label: "Pag4", icon: Icon(Icons.list))
                 ])
           ],
         ),
