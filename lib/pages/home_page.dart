@@ -3,6 +3,7 @@ import 'package:myappbootcamp/pages/card_page.dart';
 import 'package:myappbootcamp/pages/images_page.dart';
 import 'package:myappbootcamp/pages/list_view.dart';
 import 'package:myappbootcamp/pages/list_view_horizontal.dart';
+import 'package:myappbootcamp/pages/tarefa_page.dart';
 import 'package:myappbootcamp/shared/widgets/custon_draw.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,6 +37,7 @@ class _HomePageState extends State<HomePage> {
                   ImagesPage(),
                   ListViewPage(),
                   ListViewHorizontal(),
+                  TarefaPage(),
                 ],
               ),
             ),
@@ -51,7 +53,9 @@ class _HomePageState extends State<HomePage> {
                   BottomNavigationBarItem(label: "Pag2", icon: Icon(Icons.add)),
                   BottomNavigationBarItem(
                       label: "Pag3", icon: Icon(Icons.person)),
-                  BottomNavigationBarItem(label: "Pag4", icon: Icon(Icons.list))
+                  BottomNavigationBarItem(
+                      label: "Pag4", icon: Icon(Icons.image)),
+                  BottomNavigationBarItem(label: "Pag5", icon: Icon(Icons.task))
                 ])
           ],
         ),
