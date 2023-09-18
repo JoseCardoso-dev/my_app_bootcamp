@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myappbootcamp/repositories/linguagens_repository.dart';
 import 'package:myappbootcamp/repositories/nivel_repository.dart';
+import 'package:myappbootcamp/service/app_storage_service.dart';
 import 'package:myappbootcamp/shared/widgets/text_label.dart';
 
 class DadosCadastraisPage extends StatefulWidget {
@@ -18,11 +19,12 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   var nivelSelecionado = "";
   var niveis = [];
   var linguagens = [];
-  var linguagensSelecionadas = [];
+  List<String> linguagensSelecionadas = [];
   int tempoExperiencia = 0;
   double salarioEscolhido = 0;
   DateTime? dataNascimento;
 
+  AppStorageService storage = AppStorageService();
   bool salvado = false;
 
   @override
@@ -30,6 +32,21 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
     linguagens = linguagensRepository.retornarLinguagens();
     niveis = nivelRepository.retornarNiveis();
     super.initState();
+    carregarDados();
+  }
+
+  void carregarDados() async {
+    nomeController.text = await storage.getDadosCadastraisNome();
+    dataNacimentoController.text =
+        await storage.getDadosCadastraisDataNascimento();
+    if (dataNacimentoController.text.isNotEmpty) {
+      dataNascimento = DateTime.parse(dataNacimentoController.text);
+    }
+    nivelSelecionado = await storage.getDadosCadastraisNivelExperiencia();
+    tempoExperiencia = await storage.getDadosCadastraisTempoExperiencia();
+    linguagensSelecionadas = await storage.getDadosCadastraisLinguagens();
+    salarioEscolhido = await storage.getDadosCadastraisSalario();
+    setState(() {});
   }
 
   List<DropdownMenuItem> retornaListDropdown(int quantidade) {
@@ -134,7 +151,7 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
                         });
                       }),
                   TextButton(
-                      onPressed: () {
+                      onPressed: () async {
                         setState(() {
                           salvado = false;
                         });
@@ -177,6 +194,20 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
                                   "A pretenção salarial deve ser maior que 0")));
                           return;
                         }
+
+                        await storage
+                            .setDadosCadastraisNome(nomeController.text);
+                        await storage
+                            .setDadosCadastraisDataNascimento(dataNascimento!);
+                        await storage.setDadosCadastraisNivelExperiencia(
+                            nivelSelecionado);
+                        await storage.setDadosCadastraisLinguagens(
+                            linguagensSelecionadas);
+                        await storage.setDadosCadastraisTempoExperiencia(
+                            tempoExperiencia);
+                        await storage
+                            .setDadosCadastraisSalario(salarioEscolhido);
+
                         setState(() {
                           salvado = true;
                         });

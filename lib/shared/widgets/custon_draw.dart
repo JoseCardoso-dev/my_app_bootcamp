@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:myappbootcamp/pages/configuracao_page.dart';
 import 'package:myappbootcamp/pages/dados_cadastrais.dart';
 import 'package:myappbootcamp/pages/login_page.dart';
+import 'package:myappbootcamp/pages/numeros_aleatorios_page.dart';
 
 class CustonDraw extends StatelessWidget {
   const CustonDraw({super.key});
@@ -79,12 +81,18 @@ class CustonDraw extends StatelessWidget {
                 width: double.infinity,
                 child: const Row(
                   children: [
-                    Icon(Icons.note_alt_sharp),
+                    Icon(Icons.format_list_numbered),
                     SizedBox(width: 5),
-                    Text("Anotações"),
+                    Text("Gerador de Números"),
                   ],
                 )),
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (bc) => const NumerosAleatoriosPage()));
+            },
           ),
           const Divider(),
           InkWell(
@@ -182,7 +190,10 @@ class CustonDraw extends StatelessWidget {
                     Text("Configurações"),
                   ],
                 )),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (bc) => const ConfiguracaoPage()));
+            },
           ),
           Expanded(child: Container()),
           InkWell(
