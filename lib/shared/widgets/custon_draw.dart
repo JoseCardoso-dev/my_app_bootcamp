@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:myappbootcamp/pages/configuracao_page.dart';
+import 'package:myappbootcamp/pages/configura%C3%A7%C3%B5es/configuracao_hive_page.dart';
 import 'package:myappbootcamp/pages/dados_cadastrais.dart';
 import 'package:myappbootcamp/pages/login_page.dart';
-import 'package:myappbootcamp/pages/numeros_aleatorios_page.dart';
+import 'package:myappbootcamp/pages/numeros_aleatorio/numeros_aleatorios_hive_page.dart';
 
 class CustonDraw extends StatelessWidget {
   const CustonDraw({super.key});
@@ -91,7 +91,7 @@ class CustonDraw extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (bc) => const NumerosAleatoriosPage()));
+                      builder: (bc) => const NumerosAleatoriosHivePage()));
             },
           ),
           const Divider(),
@@ -191,8 +191,10 @@ class CustonDraw extends StatelessWidget {
                   ],
                 )),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (bc) => const ConfiguracaoPage()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (bc) => const ConfiguracaoHivePage()));
             },
           ),
           Expanded(child: Container()),
