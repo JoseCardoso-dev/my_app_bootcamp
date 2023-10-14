@@ -4,6 +4,7 @@ import 'package:myappbootcamp/pages/images_page.dart';
 import 'package:myappbootcamp/pages/list_view.dart';
 import 'package:myappbootcamp/pages/list_view_horizontal.dart';
 import 'package:myappbootcamp/pages/tarefa_page.dart';
+import 'package:myappbootcamp/pages/consulta_cep.dart';
 import 'package:myappbootcamp/shared/widgets/custon_draw.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,6 +34,7 @@ class _HomePageState extends State<HomePage> {
                   });
                 },
                 children: const [
+                  ConsultaCEP(),
                   CardPage(),
                   ImagesPage(),
                   ListViewPage(),
@@ -48,6 +50,8 @@ class _HomePageState extends State<HomePage> {
                 },
                 currentIndex: posicaoPage,
                 items: const [
+                  BottomNavigationBarItem(
+                      label: "http", icon: Icon(Icons.download_sharp)),
                   BottomNavigationBarItem(
                       label: "Pag1", icon: Icon(Icons.home)),
                   BottomNavigationBarItem(label: "Pag2", icon: Icon(Icons.add)),
