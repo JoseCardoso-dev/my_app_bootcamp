@@ -185,6 +185,26 @@ class CustonDraw extends StatelessWidget {
                 width: double.infinity,
                 child: const Row(
                   children: [
+                    Icon(Icons.sticky_note_2),
+                    SizedBox(width: 5),
+                    Text("Posts"),
+                  ],
+                )),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (bc) => const ConfiguracaoHivePage()));
+            },
+          ),
+          const Divider(),
+          InkWell(
+            child: Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
+                width: double.infinity,
+                child: const Row(
+                  children: [
                     Icon(Icons.settings),
                     SizedBox(width: 5),
                     Text("Configurações"),
